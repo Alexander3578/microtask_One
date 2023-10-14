@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {FilterButton} from './filterButton';
 
 export type MoneyType = {
     banknots: string;
@@ -39,26 +40,16 @@ export const FilterTask: React.FC<FilterTaskPropsType> = (props: FilterTaskProps
     })
 
     return (
-        <>
+        <div>
             <ul style={{listStyle: 'none'}}>
                 {currentMoney}
             </ul>
             <div style={{marginLeft: '35px'}}>
-                <button onClick={() => {
-                    onClickFilter('all')
-                }}>all
-                </button>
-                <button onClick={() => {
-                    onClickFilter('rubl')
-                }}>rubles
-                </button>
-                <button onClick={() => {
-                    onClickFilter('dollar')
-                }}>dollars
-                </button>
+                <FilterButton name={'all'} callBack={() => {onClickFilter('all')}}/>
+                <FilterButton name={'rubles'} callBack={() => {onClickFilter('rubl')}}/>
+                <FilterButton name={'dollars'} callBack={() => {onClickFilter('dollar')}}/>
             </div>
-        </>
+        </div>
     );
 };
 
-export default FilterTask;

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import MapTask, {TopCarsType} from './map/MapTask';
-import FilterTask, {MoneyType} from './filter/FilterTask';
+import {MapTask, TopCarsType} from './components/map/MapTask';
+import {FilterTask, MoneyType} from './components/filter/FilterTask';
+import {Button} from './components/button/Button';
 
 function App() {
 
@@ -22,13 +23,27 @@ function App() {
         {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
     ])
 
+    const Button1Foo = (subcriber:string, age: number) => {
+        console.log(subcriber, age)
+    }
+
+    const Button2Foo = (subcriber:string, age: number) => {
+        console.log(subcriber, age)
+    }
+
+    const Button3Foo = () => {
+        console.log("I'm stupid")
+    }
 
     return (
-            <div className="App">
-                <MapTask cars={topCars}/>
-                <FilterTask money={money}/>
-            </div>
-        );
+        <div className="App">
+            <MapTask cars={topCars}/>
+            <FilterTask money={money}/>
+            <Button name = {'MyTouTubeChanel1'} callBack={() => {Button1Foo('VASYA', 21)}}/>
+            <Button name = {'MyTouTubeChanel2'}  callBack={() => {Button2Foo('IBAN', 45)}}/>
+            <Button name = {'MyTouTubeChanel3'}  callBack={Button3Foo}/>
+        </div>
+    );
 }
 
 export default App;

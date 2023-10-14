@@ -34,4 +34,3 @@ export const MapTask: React.FC<MapTaskPropsType> = (props: MapTaskPropsType) => 
     );
 };
 
-export default MapTask;
